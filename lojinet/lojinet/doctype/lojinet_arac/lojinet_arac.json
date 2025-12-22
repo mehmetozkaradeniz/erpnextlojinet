@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "plaka",
+  "arac_tipi",
+  "marka",
+  "model",
+  "yil",
+  "kapasite_ton",
+  "arac_sahibi",
+  "navlun_odenecek_cari",
+  "arac_durumu",
+  "sigorta_bitis_tarihi"
+ ],
+ "fields": [
+  {
+   "fieldname": "plaka",
+   "fieldtype": "Data",
+   "label": "Plaka",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "arac_tipi",
+   "fieldtype": "Select",
+   "label": "Araç Tipi",
+   "options": "Çekici\nKamyon\nKamyonet\nDorse",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "marka",
+   "fieldtype": "Data",
+   "label": "Marka"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "yil",
+   "fieldtype": "Int",
+   "label": "Yıl"
+  },
+  {
+   "fieldname": "kapasite_ton",
+   "fieldtype": "Float",
+   "label": "Kapasite (Ton)"
+  },
+  {
+   "fieldname": "arac_sahibi",
+   "fieldtype": "Data",
+   "label": "Araç Sahibi"
+  },
+  {
+   "fieldname": "navlun_odenecek_cari",
+   "fieldtype": "Link",
+   "label": "Navlun Ödenecek Cari",
+   "options": "Lojinet Cari"
+  },
+  {
+   "fieldname": "arac_durumu",
+   "fieldtype": "Select",
+   "label": "Araç Durumu",
+   "options": "Aktif\nBakımda\nPasif\nYolda",
+   "default": "Aktif",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sigorta_bitis_tarihi",
+   "fieldtype": "Date",
+   "label": "Sigorta Bitiş Tarihi"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Arac",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:plaka",
+ "naming_rule": "By fieldname",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ]
+}

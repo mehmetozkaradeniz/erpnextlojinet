@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page { size: A4; margin: 2cm; }
+        body { font-family: Arial, sans-serif; font-size: 11pt; }
+        .header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 3px solid #1f77b4; 
+            padding-bottom: 15px; 
+            margin-bottom: 25px; 
+        }
+        .company-logo { font-size: 24pt; font-weight: bold; color: #1f77b4; }
+        .doc-title { font-size: 18pt; font-weight: bold; text-align: right; }
+        .doc-number { font-size: 14pt; color: #666; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #333; padding: 8px; }
+        th { background-color: #1f77b4; color: white; font-weight: bold; text-align: left; }
+        
+        .info-section { margin-bottom: 20px; }
+        .info-table { width: 100%; }
+        .info-table td { border: 1px solid #ddd; padding: 8px; }
+        .info-label { background-color: #f5f5f5; font-weight: bold; width: 25%; }
+        
+        .items-table { margin-top: 20px; }
+        .items-table th { text-align: center; }
+        .items-table td { text-align: center; }
+        .items-table td:first-child { text-align: left; }
+        
+        .summary { 
+            margin-top: 20px; 
+            text-align: right; 
+            font-size: 12pt;
+        }
+        .summary-box {
+            display: inline-block;
+            background: #f8f9fa;
+            padding: 15px;
+            border: 2px solid #1f77b4;
+            border-radius: 5px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+        .signatures {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        .signature {
+            text-align: center;
+            width: 45%;
+        }
+        .signature-line {
+            border-top: 1px solid #333;
+            padding-top: 5px;
+            margin-top: 60px;
+        }
+        
+        .barcode {
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 16pt;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <div class="company-logo">LOJİNET</div>
+            <div style="color: #666; font-size: 10pt;">Lojistik Yönetim Sistemi</div>
+        </div>
+        <div style="text-align: right;">
+            <div class="doc-title">MAL KABUL FORMU</div>
+            <div class="doc-number">{{ doc.name }}</div>
+        </div>
+    </div>
+    
+    <div class="info-section">
+        <table class="info-table">
+            <tr>
+                <td class="info-label">Cari</td>
+                <td colspan="3"><strong>{{ doc.cari_adi }}</strong></td>
+            </tr>
+            <tr>
+                <td class="info-label">Tarih</td>
+                <td>{{ frappe.utils.formatdate(doc.tarih, "dd-MM-yyyy") }}</td>
+                <td class="info-label">Saat</td>
+                <td>{{ doc.saat }}</td>
+            </tr>
+            <tr>
+                <td class="info-label">Araç Plaka</td>
+                <td>{{ doc.arac_plaka or "-" }}</td>
+                <td class="info-label">Rampa No</td>
+                <td>{{ doc.rampa_no or "-" }}</td>
+            </tr>
+            <tr>
+                <td class="info-label">Durum</td>
+                <td colspan="3">
+                    <span style="background: {% if doc.durum == 'Onaylandı' %}#2ecc71{% elif doc.durum == 'İptal' %}#e74c3c{% else %}#f39c12{% endif %}; 
+                                 color: white; padding: 3px 10px; border-radius: 3px; font-weight: bold;">
+                        {{ doc.durum }}
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <h3 style="color: #1f77b4; border-bottom: 2px solid #1f77b4; padding-bottom: 5px;">Kalemler</h3>
+    <table class="items-table">
+        <thead>
+            <tr>
+                <th>Stok Kodu</th>
+                <th>Ürün Adı</th>
+                <th>Miktar</th>
+                <th>Birim</th>
+                <th>Desi</th>
+                <th>Ambalaj Türü</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in doc.mal_kabul_kalemleri %}
+            <tr>
+                <td style="text-align: left;">{{ item.stok_kodu }}</td>
+                <td style="text-align: left;">{{ frappe.db.get_value("Item", item.stok_kodu, "item_name") or "-" }}</td>
+                <td><strong>{{ item.miktar }}</strong></td>
+                <td>{{ item.birim }}</td>
+                <td>{{ item.desi or "-" }}</td>
+                <td>{{ item.ambalaj_turu or "-" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="summary">
+        <div class="summary-box">
+            <strong>TOPLAM MİKTAR:</strong> {{ doc.toplam_miktar }}
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="signatures">
+            <div class="signature">
+                <div class="signature-line">
+                    Teslim Eden<br>
+                    Ad Soyad / İmza / Tarih
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-line">
+                    Teslim Alan<br>
+                    Ad Soyad / İmza / Tarih
+                </div>
+            </div>
+        </div>
+        
+        <div class="barcode">
+            *{{ doc.name }}*
+        </div>
+        
+        <p style="text-align: center; font-size: 9pt; color: #666; margin-top: 20px;">
+            Bu belge elektronik ortamda oluşturulmuştur. Geçerlilik için imza gerekmektedir.<br>
+            Oluşturulma Tarihi: {{ frappe.utils.now_datetime().strftime("%d-%m-%Y %H:%M") }}
+        </p>
+    </div>
+</body>
+</html>

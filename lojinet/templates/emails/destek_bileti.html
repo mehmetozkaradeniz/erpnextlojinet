@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        .header { background: #9b59b6; color: white; padding: 20px; text-align: center; }
+        .content { padding: 20px; max-width: 600px; margin: 0 auto; }
+        .ticket { 
+            background: #f8f9fa; 
+            padding: 20px; 
+            border-left: 5px solid #9b59b6; 
+            margin: 20px 0;
+        }
+        .priority-high { border-left-color: #e74c3c; }
+        .priority-medium { border-left-color: #f39c12; }
+        .priority-low { border-left-color: #3498db; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🎫 Yeni Destek Talebi</h2>
+    </div>
+    <div class="content">
+        <p>Sayın Müşteri Temsilcisi,</p>
+        <p>Yeni bir destek talebi oluşturuldu ve size atandı.</p>
+        
+        <div class="ticket">
+            <p><strong>Ticket No:</strong> {{ doc.name }}</p>
+            <p><strong>Müşteri:</strong> {{ frappe.db.get_value("Lojinet Cari", doc.musteri, "cari_adi") }}</p>
+            <p><strong>Konu:</strong> {{ doc.konu }}</p>
+            
+            {% if doc.yuk %}
+            <p><strong>İlgili Yük:</strong> {{ doc.yuk }}</p>
+            {% endif %}
+            
+            <p><strong>Açıklama:</strong></p>
+            <p style="background: white; padding: 10px; border-radius: 3px;">{{ doc.aciklama }}</p>
+            
+            <p style="margin-top: 15px; color: #e74c3c;">
+                <strong>⏰ Otomatik Kapatma:</strong> 12 saat içinde yanıt verilmezse ticket otomatik kapatılacaktır.
+            </p>
+        </div>
+        
+        <p style="text-align: center; margin: 30px 0;">
+            <a href="{{ frappe.utils.get_url() }}/app/lojinet-destek-bileti/{{ doc.name }}" 
+               style="display: inline-block; padding: 12px 30px; background: #9b59b6; color: white; text-decoration: none; border-radius: 5px;">
+                Ticket'i Görüntüle
+            </a>
+        </p>
+        
+        <p>Lütfen en kısa sürede yanıt veriniz.</p>
+    </div>
+</body>
+</html>

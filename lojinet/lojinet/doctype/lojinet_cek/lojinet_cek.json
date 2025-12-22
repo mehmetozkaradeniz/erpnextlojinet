@@ -1,0 +1,84 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "cek_no",
+  "banka",
+  "sube",
+  "tutar",
+  "vade_tarihi",
+  "cek_durumu"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Seri",
+   "options": "CEK-.YYYY.-.####"
+  },
+  {
+   "fieldname": "cek_no",
+   "fieldtype": "Data",
+   "label": "Çek No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "banka",
+   "fieldtype": "Data",
+   "label": "Banka"
+  },
+  {
+   "fieldname": "sube",
+   "fieldtype": "Data",
+   "label": "Şube"
+  },
+  {
+   "fieldname": "tutar",
+   "fieldtype": "Currency",
+   "label": "Tutar",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vade_tarihi",
+   "fieldtype": "Date",
+   "label": "Vade Tarihi"
+  },
+  {
+   "fieldname": "cek_durumu",
+   "fieldtype": "Select",
+   "label": "Durum",
+   "options": "Portföyde\nCiro Edildi\nTahsil Edildi\nİade",
+   "default": "Portföyde"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Cek",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "naming_series:",
+ "naming_rule": "By \"Naming Series\" field",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ]
+}

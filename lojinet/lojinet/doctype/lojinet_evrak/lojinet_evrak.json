@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "musteri",
+  "yuk",
+  "yil",
+  "ay",
+  "dosya"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Seri",
+   "options": "EVR-.YYYY.-.####"
+  },
+  {
+   "fieldname": "musteri",
+   "fieldtype": "Link",
+   "label": "Müşteri",
+   "options": "Lojinet Cari",
+   "reqd": 1
+  },
+  {
+   "fieldname": "yuk",
+   "fieldtype": "Link",
+   "label": "Yük",
+   "options": "Lojinet Yuk"
+  },
+  {
+   "fieldname": "yil",
+   "fieldtype": "Int",
+   "label": "Yıl",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ay",
+   "fieldtype": "Select",
+   "label": "Ay",
+   "options": "01\n02\n03\n04\n05\n06\n07\n08\n09\n10\n11\n12",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dosya",
+   "fieldtype": "Attach",
+   "label": "Dosya"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Evrak",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "naming_series:",
+ "naming_rule": "By \"Naming Series\" field",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ]
+}

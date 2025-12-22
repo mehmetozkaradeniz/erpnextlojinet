@@ -1,0 +1,53 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ _("Online Mutabakat") }}{% endblock %}
+
+{% block page_content %}
+<div class="container" style="max-width: 800px; margin: 50px auto;">
+    <div class="card">
+        <div class="card-body">
+            <h2>Online Mutabakat</h2>
+            <p><strong>Dönem:</strong> {{ mutabakat.ay }}/{{ mutabakat.yil }}</p>
+            <p><strong>Cari:</strong> {{ frappe.db.get_value("Lojinet Cari", mutabakat.cari, "cari_adi") }}</p>
+            
+            {% if mutabakat.durum == "Cevap Bekleniyor" %}
+            <div style="margin-top: 30px;">
+                <button class="btn btn-success btn-lg" onclick="onayMutabakat(true)">Onayla</button>
+                <button class="btn btn-danger btn-lg" onclick="onayMutabakat(false)">Reddet</button>
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                <strong>Durum:</strong> {{ mutabakat.durum }}
+                {% if mutabakat.durum == "Reddedildi" %}
+                <br><strong>Açıklama:</strong> {{ mutabakat.red_aciklamasi }}
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+function onayMutabakat(onay) {
+    var aciklama = null;
+    if (!onay) {
+        aciklama = prompt("Red açıklaması:");
+        if (!aciklama) return;
+    }
+    
+    frappe.call({
+        method: "lojinet.api.onay_mutabakat",
+        args: {
+            mutabakat_name: "{{ mutabakat.name }}",
+            onay: onay,
+            aciklama: aciklama
+        },
+        callback: function(r) {
+            if (r.message) {
+                location.reload();
+            }
+        }
+    });
+}
+</script>
+{% endblock %}

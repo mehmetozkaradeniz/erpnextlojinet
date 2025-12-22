@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "islem_tarihi",
+  "arac_plaka",
+  "sofor",
+  "sefer_yukleri",
+  "navlun_tutar",
+  "toplam_fiyat"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Seri",
+   "options": "SFR-.YYYY.-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "islem_tarihi",
+   "fieldtype": "Date",
+   "label": "İşlem Tarihi",
+   "default": "Today",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "arac_plaka",
+   "fieldtype": "Link",
+   "label": "Araç",
+   "options": "Lojinet Arac",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sofor",
+   "fieldtype": "Link",
+   "label": "Şoför",
+   "options": "Lojinet Sofor"
+  },
+  {
+   "fieldname": "sefer_yukleri",
+   "fieldtype": "Table",
+   "label": "Yükler",
+   "options": "Lojinet Sefer Yuk"
+  },
+  {
+   "fieldname": "navlun_tutar",
+   "fieldtype": "Currency",
+   "label": "Navlun"
+  },
+  {
+   "fieldname": "toplam_fiyat",
+   "fieldtype": "Currency",
+   "label": "Toplam",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Sefer",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "is_submittable": 1,
+ "autoname": "naming_series:",
+ "naming_rule": "By \"Naming Series\" field",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1,
+   "submit": 1
+  }
+ ]
+}

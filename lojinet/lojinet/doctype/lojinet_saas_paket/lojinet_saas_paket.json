@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "paket_adi",
+  "aylik_fiyat",
+  "yillik_fiyat",
+  "kullanici_sayisi"
+ ],
+ "fields": [
+  {
+   "fieldname": "paket_adi",
+   "fieldtype": "Data",
+   "label": "Paket Adı",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "aylik_fiyat",
+   "fieldtype": "Currency",
+   "label": "Aylık Fiyat"
+  },
+  {
+   "fieldname": "yillik_fiyat",
+   "fieldtype": "Currency",
+   "label": "Yıllık Fiyat"
+  },
+  {
+   "fieldname": "kullanici_sayisi",
+   "fieldtype": "Int",
+   "label": "Kullanıcı Sayısı"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Saas Paket",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:paket_adi",
+ "naming_rule": "By fieldname",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ]
+}

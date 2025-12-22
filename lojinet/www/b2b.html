@@ -1,0 +1,63 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ _("B2B Portal") }}{% endblock %}
+
+{% block page_content %}
+<div class="lojinet-b2b-portal">
+    <h1>B2B Müşteri Portalı</h1>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="lojinet-card">
+                <h3>Yüklerim</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>İrsaliye No</th>
+                            <th>Tarih</th>
+                            <th>Statü</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for yuk in yukler %}
+                        <tr>
+                            <td>{{ yuk.musteri_irsaliye_no }}</td>
+                            <td>{{ yuk.islem_tarihi }}</td>
+                            <td><span class="lojinet-status-badge status-{{ yuk.yuk_statusu|lower }}">{{ yuk.yuk_statusu }}</span></td>
+                            <td>{{ yuk.yuk_durumu }}</td>
+                            <td><a href="/destek?yuk={{ yuk.name }}" class="btn btn-sm btn-primary">Destek Talebi</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="lojinet-card">
+                <h3>Destek Biletlerim</h3>
+                <div>
+                    {% for ticket in tickets %}
+                    <div class="lojinet-ticket">
+                        <strong>{{ ticket.konu }}</strong> - {{ ticket.durum }}
+                        <small>{{ ticket.creation }}</small>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="lojinet-card">
+                <h4>Müşteri Temsilciniz</h4>
+                {% if temsilci %}
+                <p><strong>{{ frappe.db.get_value("User", temsilci, "full_name") }}</strong></p>
+                <p>E-posta: {{ frappe.db.get_value("User", temsilci, "email") }}</p>
+                {% else %}
+                <p>Henüz atanmadı</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

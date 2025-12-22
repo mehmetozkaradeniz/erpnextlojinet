@@ -1,0 +1,38 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "yuk",
+  "irsaliye_no"
+ ],
+ "fields": [
+  {
+   "fieldname": "yuk",
+   "fieldtype": "Link",
+   "label": "Yük",
+   "options": "Lojinet Yuk",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "irsaliye_no",
+   "fieldtype": "Data",
+   "label": "İrsaliye No",
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Sefer Yuk",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "istable": 1
+}

@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "adres_adi",
+  "adres_tipi",
+  "varsayilan",
+  "adres_satiri_1",
+  "il",
+  "ilce",
+  "posta_kodu",
+  "yetkili_kisi",
+  "telefon",
+  "email"
+ ],
+ "fields": [
+  {
+   "fieldname": "adres_adi",
+   "fieldtype": "Data",
+   "label": "Adres Adı",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "adres_tipi",
+   "fieldtype": "Select",
+   "label": "Adres Tipi",
+   "options": "Fatura\nGönderi\nTeslimat\nDiğer",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "varsayilan",
+   "fieldtype": "Check",
+   "label": "Varsayılan",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "adres_satiri_1",
+   "fieldtype": "Data",
+   "label": "Adres"
+  },
+  {
+   "fieldname": "il",
+   "fieldtype": "Data",
+   "label": "İl"
+  },
+  {
+   "fieldname": "ilce",
+   "fieldtype": "Data",
+   "label": "İlçe"
+  },
+  {
+   "fieldname": "posta_kodu",
+   "fieldtype": "Data",
+   "label": "Posta Kodu"
+  },
+  {
+   "fieldname": "yetkili_kisi",
+   "fieldtype": "Data",
+   "label": "Yetkili Kişi"
+  },
+  {
+   "fieldname": "telefon",
+   "fieldtype": "Data",
+   "label": "Telefon"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "E-posta"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Cari Adres",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "istable": 1
+}

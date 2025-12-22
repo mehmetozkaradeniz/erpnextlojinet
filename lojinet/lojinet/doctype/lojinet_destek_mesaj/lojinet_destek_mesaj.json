@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "mesaj",
+  "gonderici",
+  "tarih"
+ ],
+ "fields": [
+  {
+   "fieldname": "mesaj",
+   "fieldtype": "Text",
+   "label": "Mesaj",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "gonderici",
+   "fieldtype": "Link",
+   "label": "Gönderici",
+   "options": "User",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "tarih",
+   "fieldtype": "Datetime",
+   "label": "Tarih",
+   "default": "Now",
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Destek Mesaj",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "istable": 1
+}

@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "masraf_kalemi",
+  "aciklama",
+  "tutar",
+  "fiyat_anlasmasi",
+  "fatura_durumu",
+  "fatura_no",
+  "fatura_tarihi"
+ ],
+ "fields": [
+  {
+   "fieldname": "masraf_kalemi",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Masraf Kalemi",
+   "reqd": 1
+  },
+  {
+   "fieldname": "aciklama",
+   "fieldtype": "Small Text",
+   "label": "A\u00e7\u0131klama"
+  },
+  {
+   "fieldname": "tutar",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Tutar",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fiyat_anlasmasi",
+   "fieldtype": "Link",
+   "label": "Fiyat Anla\u015fmas\u0131",
+   "options": "Lojinet Fiyat Anlasmasi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fatura_durumu",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Fatura Durumu",
+   "options": "Faturalanmad\u0131\nFaturaland\u0131",
+   "default": "Faturalanmad\u0131"
+  },
+  {
+   "fieldname": "fatura_no",
+   "fieldtype": "Link",
+   "label": "Fatura No",
+   "options": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fatura_tarihi",
+   "fieldtype": "Date",
+   "label": "Fatura Tarihi",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Yuk Fiyat",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

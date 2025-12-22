@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "cari",
+  "tarih",
+  "saat",
+  "arac_plaka",
+  "rampa_no",
+  "mal_kabul_kalemleri",
+  "toplam_miktar",
+  "durum"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Seri",
+   "options": "MK-.YYYY.-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cari",
+   "fieldtype": "Link",
+   "label": "Cari",
+   "options": "Lojinet Cari",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "tarih",
+   "fieldtype": "Date",
+   "label": "Tarih",
+   "default": "Today",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "saat",
+   "fieldtype": "Time",
+   "label": "Saat",
+   "default": "Now",
+   "reqd": 1
+  },
+  {
+   "fieldname": "arac_plaka",
+   "fieldtype": "Link",
+   "label": "Araç Plaka",
+   "options": "Lojinet Arac"
+  },
+  {
+   "fieldname": "rampa_no",
+   "fieldtype": "Data",
+   "label": "Rampa No"
+  },
+  {
+   "fieldname": "mal_kabul_kalemleri",
+   "fieldtype": "Table",
+   "label": "Kalemler",
+   "options": "Lojinet Mal Kabul Detay"
+  },
+  {
+   "fieldname": "toplam_miktar",
+   "fieldtype": "Float",
+   "label": "Toplam Miktar",
+   "read_only": 1
+  },
+  {
+   "fieldname": "durum",
+   "fieldtype": "Select",
+   "label": "Durum",
+   "options": "Taslak\nOnaylandı\nİptal",
+   "default": "Taslak"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Mal Kabul",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "is_submittable": 1,
+ "autoname": "naming_series:",
+ "naming_rule": "By \"Naming Series\" field",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1,
+   "submit": 1
+  }
+ ]
+}

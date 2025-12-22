@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        .header { background: #1f77b4; color: white; padding: 20px; text-align: center; }
+        .content { padding: 20px; max-width: 800px; margin: 0 auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        .footer { text-align: center; padding: 20px; color: #7f8c8d; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🚚 Mal Kabul Bildirimi</h2>
+    </div>
+    <div class="content">
+        <p>Sayın <strong>{{ doc.cari_adi }}</strong>,</p>
+        <p>Mal kabul işleminiz başarıyla tamamlanmıştır.</p>
+        
+        <table>
+            <tr>
+                <td width="30%"><strong>Mal Kabul No:</strong></td>
+                <td>{{ doc.name }}</td>
+            </tr>
+            <tr>
+                <td><strong>Tarih:</strong></td>
+                <td>{{ frappe.utils.formatdate(doc.tarih, "dd-MM-yyyy") }} {{ doc.saat }}</td>
+            </tr>
+            <tr>
+                <td><strong>Araç Plaka:</strong></td>
+                <td>{{ doc.arac_plaka or "-" }}</td>
+            </tr>
+            <tr>
+                <td><strong>Rampa No:</strong></td>
+                <td>{{ doc.rampa_no or "-" }}</td>
+            </tr>
+            <tr>
+                <td><strong>Toplam Miktar:</strong></td>
+                <td><strong>{{ doc.toplam_miktar }}</strong></td>
+            </tr>
+        </table>
+        
+        <h3 style="margin-top: 30px;">Kalemler:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Stok Kodu</th>
+                    <th>Miktar</th>
+                    <th>Birim</th>
+                    <th>Desi</th>
+                    <th>Ambalaj Türü</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in doc.mal_kabul_kalemleri %}
+                <tr>
+                    <td>{{ item.stok_kodu }}</td>
+                    <td>{{ item.miktar }}</td>
+                    <td>{{ item.birim }}</td>
+                    <td>{{ item.desi or "-" }}</td>
+                    <td>{{ item.ambalaj_turu or "-" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <p style="margin-top: 30px; padding: 15px; background: #e8f4f8; border-left: 4px solid #1f77b4;">
+            📎 Detaylar için ekteki PDF belgesini inceleyebilirsiniz.
+        </p>
+        
+        <p style="margin-top: 30px;">
+            İyi çalışmalar dileriz.<br>
+            <strong>Lojinet Ekibi</strong>
+        </p>
+    </div>
+    <div class="footer">
+        Bu mail otomatik olarak oluşturulmuştur.
+    </div>
+</body>
+</html>

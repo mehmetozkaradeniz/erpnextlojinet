@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tc_kimlik_no",
+  "ad_soyad",
+  "telefon",
+  "email",
+  "ehliyet_no",
+  "src_belge_no",
+  "src_gecerlilik_tarihi",
+  "durum"
+ ],
+ "fields": [
+  {
+   "fieldname": "tc_kimlik_no",
+   "fieldtype": "Data",
+   "label": "TC Kimlik No",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "ad_soyad",
+   "fieldtype": "Data",
+   "label": "Ad Soyad",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "telefon",
+   "fieldtype": "Data",
+   "label": "Telefon",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "E-posta"
+  },
+  {
+   "fieldname": "ehliyet_no",
+   "fieldtype": "Data",
+   "label": "Ehliyet No"
+  },
+  {
+   "fieldname": "src_belge_no",
+   "fieldtype": "Data",
+   "label": "SRC Belge No"
+  },
+  {
+   "fieldname": "src_gecerlilik_tarihi",
+   "fieldtype": "Date",
+   "label": "SRC Geçerlilik Tarihi"
+  },
+  {
+   "fieldname": "durum",
+   "fieldtype": "Select",
+   "label": "Durum",
+   "options": "Aktif\nPasif\nGörevde",
+   "default": "Aktif",
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Sofor",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:tc_kimlik_no",
+ "naming_rule": "By fieldname",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ]
+}

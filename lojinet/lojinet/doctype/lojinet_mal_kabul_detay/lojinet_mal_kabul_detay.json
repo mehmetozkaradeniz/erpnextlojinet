@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "stok_kodu",
+  "miktar",
+  "birim",
+  "desi",
+  "ambalaj_turu"
+ ],
+ "fields": [
+  {
+   "fieldname": "stok_kodu",
+   "fieldtype": "Link",
+   "label": "Stok Kodu",
+   "options": "Item",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "miktar",
+   "fieldtype": "Float",
+   "label": "Miktar",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "birim",
+   "fieldtype": "Link",
+   "label": "Birim",
+   "options": "UOM",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "desi",
+   "fieldtype": "Float",
+   "label": "Desi",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "ambalaj_turu",
+   "fieldtype": "Select",
+   "label": "Ambalaj",
+   "options": "Koli\nPalet\nÇuval",
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Mal Kabul Detay",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "istable": 1
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page { size: A4; margin: 1cm; }
+        body { font-family: Arial, sans-serif; font-size: 11pt; }
+        .header { text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
+        .company-name { font-size: 18pt; font-weight: bold; }
+        .doc-title { font-size: 16pt; font-weight: bold; margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #333; padding: 5px; text-align: left; font-size: 10pt; }
+        th { background-color: #f0f0f0; font-weight: bold; }
+        .info-table { margin-bottom: 20px; }
+        .info-table td { border: none; padding: 3px; }
+        .footer { margin-top: 30px; }
+        .signature { display: inline-block; width: 45%; text-align: center; margin-top: 50px; }
+        .signature-line { border-top: 1px solid #333; padding-top: 5px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="company-name">{{ frappe.defaults.get_user_default("company") or "LojİNET" }}</div>
+        <div class="doc-title">YÜKLEME LİSTESİ</div>
+    </div>
+    
+    <table class="info-table">
+        <tr>
+            <td width="15%"><strong>Sefer No:</strong></td>
+            <td width="35%">{{ doc.name }}</td>
+            <td width="15%"><strong>Tarih:</strong></td>
+            <td width="35%">{{ frappe.utils.formatdate(doc.islem_tarihi, "dd-MM-yyyy") }}</td>
+        </tr>
+        <tr>
+            <td><strong>Araç Plaka:</strong></td>
+            <td>{{ doc.arac_plaka }}</td>
+            <td><strong>Şoför:</strong></td>
+            <td>{{ doc.sofor }}</td>
+        </tr>
+        <tr>
+            <td><strong>Şoför Tel:</strong></td>
+            <td>{{ doc.sofor_telefon }}</td>
+            <td><strong>Navlun:</strong></td>
+            <td>{{ doc.navlun_tutar }} TL</td>
+        </tr>
+    </table>
+    
+    <h3>YÜKLER:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="5%">Sıra</th>
+                <th width="20%">Yük No</th>
+                <th width="20%">İrsaliye No</th>
+                <th width="25%">Müşteri</th>
+                <th width="30%">Alıcı</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in doc.sefer_yukleri %}
+            <tr>
+                <td style="text-align: center;">{{ loop.index }}</td>
+                <td>{{ item.yuk }}</td>
+                <td>{{ item.irsaliye_no }}</td>
+                <td>{{ frappe.db.get_value("Lojinet Yuk", item.yuk, "musteri_adi") }}</td>
+                <td>{{ frappe.db.get_value("Lojinet Yuk", item.yuk, "alici_cari") }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <p style="margin-top: 20px;"><strong>Toplam Yük Sayısı:</strong> {{ doc.sefer_yukleri|length }} adet</p>
+    
+    <div class="footer">
+        <div class="signature" style="float: left;">
+            <div class="signature-line">
+                Yükleyen<br>
+                Ad Soyad / İmza
+            </div>
+        </div>
+        <div class="signature" style="float: right;">
+            <div class="signature-line">
+                Şoför<br>
+                Ad Soyad / İmza
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <p style="text-align: center; margin-top: 50px; font-size: 9pt; color: #666;">
+        Bu belge elektronik ortamda oluşturulmuştur.
+    </p>
+</body>
+</html>

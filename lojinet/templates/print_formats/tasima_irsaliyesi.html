@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page { size: A4; margin: 1.5cm; }
+        body { font-family: Arial, sans-serif; font-size: 10pt; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .title { font-size: 16pt; font-weight: bold; border: 2px solid #000; padding: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #000; padding: 8px; }
+        th { background-color: #e0e0e0; font-weight: bold; }
+        .section-title { background-color: #f0f0f0; font-weight: bold; padding: 5px; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">TAŞIMA İRSALİYESİ</div>
+    </div>
+    
+    <div class="section-title">SEFER BİLGİLERİ</div>
+    <table>
+        <tr>
+            <td width="25%"><strong>Sefer No:</strong></td>
+            <td width="25%">{{ doc.name }}</td>
+            <td width="25%"><strong>Tarih:</strong></td>
+            <td width="25%">{{ frappe.utils.formatdate(doc.islem_tarihi, "dd-MM-yyyy") }}</td>
+        </tr>
+    </table>
+    
+    <div class="section-title">ARAÇ VE ŞOFÖR BİLGİLERİ</div>
+    <table>
+        <tr>
+            <td width="25%"><strong>Araç Plaka:</strong></td>
+            <td width="25%">{{ doc.arac_plaka }}</td>
+            <td width="25%"><strong>Araç Tipi:</strong></td>
+            <td width="25%">{{ frappe.db.get_value("Lojinet Arac", doc.arac_plaka, "arac_tipi") }}</td>
+        </tr>
+        <tr>
+            <td><strong>Şoför Ad Soyad:</strong></td>
+            <td>{{ frappe.db.get_value("Lojinet Sofor", doc.sofor, "ad_soyad") }}</td>
+            <td><strong>Telefon:</strong></td>
+            <td>{{ doc.sofor_telefon }}</td>
+        </tr>
+    </table>
+    
+    <div class="section-title">YÜKLER</div>
+    <table>
+        <thead>
+            <tr>
+                <th width="5%">No</th>
+                <th width="15%">Yük No</th>
+                <th width="15%">İrsaliye No</th>
+                <th width="20%">Gönderen</th>
+                <th width="20%">Alıcı</th>
+                <th width="25%">Alıcı Adres</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in doc.sefer_yukleri %}
+            {% set yuk = frappe.get_doc("Lojinet Yuk", item.yuk) %}
+            <tr>
+                <td style="text-align: center;">{{ loop.index }}</td>
+                <td>{{ item.yuk }}</td>
+                <td>{{ yuk.musteri_irsaliye_no }}</td>
+                <td>{{ yuk.gonderici_cari }}</td>
+                <td>{{ yuk.alici_cari }}</td>
+                <td style="font-size: 9pt;">
+                    {% if yuk.alici_adres %}
+                    {{ frappe.db.get_value("Lojinet Cari Adres", yuk.alici_adres, "adres_satiri_1") }}<br>
+                    {{ frappe.db.get_value("Lojinet Cari Adres", yuk.alici_adres, "il") }} / {{ frappe.db.get_value("Lojinet Cari Adres", yuk.alici_adres, "ilce") }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div style="margin-top: 30px;">
+        <table>
+            <tr>
+                <td width="50%" style="border: none;">
+                    <strong>Toplam Yük:</strong> {{ doc.sefer_yukleri|length }} adet
+                </td>
+                <td width="50%" style="border: none; text-align: right;">
+                    <strong>Navlun Tutarı:</strong> {{ doc.navlun_tutar }} TL
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div style="margin-top: 50px;">
+        <table>
+            <tr>
+                <td width="33%" style="text-align: center; border: none;">
+                    <div style="margin-top: 40px; border-top: 1px solid #000; padding-top: 5px;">
+                        Teslim Eden<br>Ad Soyad / İmza
+                    </div>
+                </td>
+                <td width="33%" style="text-align: center; border: none;">
+                    <div style="margin-top: 40px; border-top: 1px solid #000; padding-top: 5px;">
+                        Şoför<br>Ad Soyad / İmza
+                    </div>
+                </td>
+                <td width="34%" style="text-align: center; border: none;">
+                    <div style="margin-top: 40px; border-top: 1px solid #000; padding-top: 5px;">
+                        Teslim Alan<br>Ad Soyad / İmza
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <p style="text-align: center; margin-top: 30px; font-size: 8pt; color: #666;">
+        Bu belge elektronik ortamda oluşturulmuş olup imza içermemektedir.
+    </p>
+</body>
+</html>

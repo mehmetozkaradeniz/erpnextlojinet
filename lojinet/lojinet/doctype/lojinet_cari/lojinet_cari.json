@@ -1,0 +1,124 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "cari_kodu",
+  "cari_adi",
+  "cari_tipi",
+  "vergi_dairesi",
+  "vergi_numarasi",
+  "telefon",
+  "email",
+  "website",
+  "adresler",
+  "ek_mail_adresleri",
+  "odeme_vadesi",
+  "kredi_limiti",
+  "musteri_temsilcisi"
+ ],
+ "fields": [
+  {
+   "fieldname": "cari_kodu",
+   "fieldtype": "Data",
+   "label": "Cari Kodu",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "cari_adi",
+   "fieldtype": "Data",
+   "label": "Cari Adı",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cari_tipi",
+   "fieldtype": "Select",
+   "label": "Cari Tipi",
+   "options": "Müşteri\nTedarikçi\nHer İkisi",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vergi_dairesi",
+   "fieldtype": "Data",
+   "label": "Vergi Dairesi"
+  },
+  {
+   "fieldname": "vergi_numarasi",
+   "fieldtype": "Data",
+   "label": "Vergi Numarası"
+  },
+  {
+   "fieldname": "telefon",
+   "fieldtype": "Data",
+   "label": "Telefon"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "E-posta"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "adresler",
+   "fieldtype": "Table",
+   "label": "Adresler",
+   "options": "Lojinet Cari Adres"
+  },
+  {
+   "fieldname": "ek_mail_adresleri",
+   "fieldtype": "Small Text",
+   "label": "Ek Mail Adresleri"
+  },
+  {
+   "fieldname": "odeme_vadesi",
+   "fieldtype": "Int",
+   "label": "Ödeme Vadesi (Gün)"
+  },
+  {
+   "fieldname": "kredi_limiti",
+   "fieldtype": "Currency",
+   "label": "Kredi Limiti"
+  },
+  {
+   "fieldname": "musteri_temsilcisi",
+   "fieldtype": "Link",
+   "label": "Müşteri Temsilcisi",
+   "options": "User"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Cari",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "is_submittable": 0,
+ "autoname": "field:cari_kodu",
+ "naming_rule": "By fieldname",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ]
+}
