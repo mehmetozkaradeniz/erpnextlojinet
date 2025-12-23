@@ -5,10 +5,10 @@ with open("requirements.txt") as f:
 
 setup(
     name="lojinet",
-    version="1.0.0",
-    description="Comprehensive Logistics, Warehouse Management and SaaS System for ERPNext",
-    author="Lojinet Team",
-    author_email="info@lojinet.com",
+    version="2.0.0",
+    description="Profesyonel Lojistik Yönetim Sistemi",
+    author="İXİR Bilişim",
+    author_email="info@ixirbilisim.com",
     packages=find_packages(),
     zip_safe=False,
     include_package_data=True,

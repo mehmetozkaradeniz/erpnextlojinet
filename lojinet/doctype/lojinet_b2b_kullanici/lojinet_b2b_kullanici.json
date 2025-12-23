@@ -1,0 +1,73 @@
+{
+ "creation": "2025-12-23 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "email",
+  "cari",
+  "ad_soyad",
+  "telefon",
+  "aktif",
+  "api_key",
+  "son_giris"
+ ],
+ "fields": [
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "cari",
+   "fieldtype": "Link",
+   "label": "Cari",
+   "options": "Lojinet Cari",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ad_soyad",
+   "fieldtype": "Data",
+   "label": "Ad Soyad",
+   "reqd": 1
+  },
+  {
+   "fieldname": "telefon",
+   "fieldtype": "Data",
+   "label": "Telefon"
+  },
+  {
+   "fieldname": "aktif",
+   "fieldtype": "Check",
+   "label": "Aktif",
+   "default": "1"
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Data",
+   "label": "API Key",
+   "read_only": 1
+  },
+  {
+   "fieldname": "son_giris",
+   "fieldtype": "Datetime",
+   "label": "Son Giri\u015f",
+   "read_only": 1
+  }
+ ],
+ "modified": "2025-12-23 00:00:00",
+ "module": "Lojinet",
+ "name": "Lojinet B2B Kullanici",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  }
+ ],
+ "autoname": "field:email",
+ "naming_rule": "By \"Naming Series\" field"
+}

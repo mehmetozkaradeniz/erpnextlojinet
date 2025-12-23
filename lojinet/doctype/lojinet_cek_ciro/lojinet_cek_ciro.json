@@ -1,0 +1,76 @@
+{
+ "creation": "2025-12-23 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "cek",
+  "eski_cari",
+  "yeni_cari",
+  "ciro_tarihi",
+  "tutar",
+  "aciklama"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Seri",
+   "options": "CC-.YYYY.-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cek",
+   "fieldtype": "Link",
+   "label": "\u00c7ek",
+   "options": "Lojinet Cek",
+   "reqd": 1
+  },
+  {
+   "fieldname": "eski_cari",
+   "fieldtype": "Link",
+   "label": "Eski Cari",
+   "options": "Lojinet Cari",
+   "read_only": 1
+  },
+  {
+   "fieldname": "yeni_cari",
+   "fieldtype": "Link",
+   "label": "Yeni Cari",
+   "options": "Lojinet Cari",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ciro_tarihi",
+   "fieldtype": "Date",
+   "label": "Ciro Tarihi",
+   "default": "Today",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tutar",
+   "fieldtype": "Currency",
+   "label": "Tutar",
+   "read_only": 1
+  },
+  {
+   "fieldname": "aciklama",
+   "fieldtype": "Small Text",
+   "label": "A\u00e7\u0131klama"
+  }
+ ],
+ "modified": "2025-12-23 00:00:00",
+ "module": "Lojinet",
+ "name": "Lojinet Cek Ciro",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  }
+ ],
+ "autoname": "naming_series:",
+ "naming_rule": "By \"Naming Series\" field"
+}
