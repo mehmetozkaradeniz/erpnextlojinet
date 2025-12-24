@@ -1,0 +1,24 @@
+{
+ "autoname":"naming_series:",
+ "creation":"2025-12-23 00:00:00",
+ "doctype":"DocType",
+ "field_order":["naming_series","cari","mal_kabul_tarihi","depo","detaylar","durum"],
+ "fields":[
+  {"fieldname":"naming_series","fieldtype":"Select","label":"Seri","options":"MK-.YYYY.-.####","reqd":1},
+  {"fieldname":"cari","fieldtype":"Link","label":"Cari","options":"Lojinet Cari","reqd":1,"in_list_view":1},
+  {"fieldname":"mal_kabul_tarihi","fieldtype":"Date","label":"Mal Kabul Tarihi","default":"Today","reqd":1,"in_list_view":1},
+  {"fieldname":"depo","fieldtype":"Link","label":"Depo","options":"Lojinet Depo"},
+  {"fieldname":"detaylar","fieldtype":"Table","label":"Detaylar","options":"Lojinet Mal Kabul Detay"},
+  {"fieldname":"durum","fieldtype":"Select","label":"Durum","options":"Taslak\\nİşlendi","default":"Taslak","read_only":1}
+ ],
+ "is_submittable":1,
+ "modified":"2025-12-23 00:00:00",
+ "module":"Lojinet",
+ "name":"Lojinet Mal Kabul",
+ "naming_rule":"By \"Naming Series\" field",
+ "permissions":[{"create":1,"delete":1,"read":1,"write":1,"submit":1,"role":"System Manager"}],
+ "search_fields":"cari,mal_kabul_tarihi",
+ "sort_field":"mal_kabul_tarihi",
+ "sort_order":"DESC",
+ "title_field":"cari"
+}

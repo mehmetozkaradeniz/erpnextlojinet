@@ -1,0 +1,16 @@
+{
+ "creation":"2025-12-23 00:00:00",
+ "doctype":"DocType",
+ "editable_grid":1,
+ "field_order":["stok_kodu","urun_adi","miktar","birim"],
+ "fields":[
+  {"fieldname":"stok_kodu","fieldtype":"Data","label":"Stok Kodu","reqd":1,"in_list_view":1},
+  {"fieldname":"urun_adi","fieldtype":"Data","label":"Ürün Adı","in_list_view":1},
+  {"fieldname":"miktar","fieldtype":"Float","label":"Miktar","reqd":1,"in_list_view":1},
+  {"fieldname":"birim","fieldtype":"Select","label":"Birim","options":"Adet\\nKg\\nM3","in_list_view":1}
+ ],
+ "istable":1,
+ "modified":"2025-12-23 00:00:00",
+ "module":"Lojinet",
+ "name":"Lojinet Mal Kabul Detay"
+}

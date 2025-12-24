@@ -1,55 +1,22 @@
-/* Lojinet Custom CSS */
-.lojinet-dashboard {
-    padding: 20px;
-}
-
-.lojinet-card {
-    border: 1px solid #d1d8dd;
-    border-radius: 4px;
-    padding: 15px;
-    margin-bottom: 15px;
-    background: #fff;
-}
-
-.lojinet-status-badge {
-    padding: 4px 8px;
+/* LOJİNET V2.0 - CSS */
+.lojinet-badge-yolda {
+    background: #ff9800;
+    color: white;
+    padding: 2px 8px;
     border-radius: 3px;
-    font-size: 12px;
-    font-weight: bold;
 }
 
-.status-beklemede { background: #ffeaa7; color: #2d3436; }
-.status-yolda { background: #74b9ff; color: #2d3436; }
-.status-teslim { background: #55efc4; color: #2d3436; }
-.status-iptal { background: #ff7675; color: #fff; }
-
-.lojinet-b2b-portal {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.lojinet-badge-teslim {
+    background: #4caf50;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
 }
 
-.lojinet-ticket {
-    border-left: 4px solid #0984e3;
-    padding-left: 15px;
-    margin-bottom: 15px;
+.tarihler-tablo {
+    margin: 15px 0;
 }
 
-.lojinet-evrak-galeri {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.lojinet-evrak-item {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.lojinet-evrak-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.tarihler-tablo table {
+    width: 100%;
 }

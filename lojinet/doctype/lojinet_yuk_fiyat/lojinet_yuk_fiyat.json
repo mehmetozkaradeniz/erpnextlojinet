@@ -1,91 +1,20 @@
 {
- "creation": "2025-12-23 00:00:00",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "masraf_kalemi",
-  "aciklama",
-  "miktar",
-  "birim_fiyat",
-  "toplam",
-  "fiyat_anlasmasi",
-  "fatura_durumu",
-  "fatura_no",
-  "fatura_tarihi"
+ "creation":"2025-12-23 00:00:00",
+ "doctype":"DocType",
+ "editable_grid":1,
+ "engine":"InnoDB",
+ "field_order":["masraf_kalemi","aciklama","miktar","birim_fiyat","toplam","fiyat_anlasmasi","fatura_durumu"],
+ "fields":[
+  {"fieldname":"masraf_kalemi","fieldtype":"Data","label":"Masraf Kalemi","reqd":1,"in_list_view":1},
+  {"fieldname":"aciklama","fieldtype":"Small Text","label":"Açıklama"},
+  {"fieldname":"miktar","fieldtype":"Float","label":"Miktar","default":"1","in_list_view":1},
+  {"fieldname":"birim_fiyat","fieldtype":"Currency","label":"Birim Fiyat","in_list_view":1},
+  {"fieldname":"toplam","fieldtype":"Currency","label":"Toplam","read_only":1,"in_list_view":1},
+  {"fieldname":"fiyat_anlasmasi","fieldtype":"Link","label":"Fiyat Anlaşması","options":"Lojinet Fiyat Anlasmasi","read_only":1},
+  {"fieldname":"fatura_durumu","fieldtype":"Select","label":"Fatura Durumu","options":"Faturalanmadı\\nFaturalandı","default":"Faturalanmadı"}
  ],
- "fields": [
-  {
-   "fieldname": "masraf_kalemi",
-   "fieldtype": "Data",
-   "label": "Masraf Kalemi",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "aciklama",
-   "fieldtype": "Small Text",
-   "label": "A\u00e7\u0131klama"
-  },
-  {
-   "fieldname": "miktar",
-   "fieldtype": "Float",
-   "label": "Miktar",
-   "default": "1",
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "birim_fiyat",
-   "fieldtype": "Currency",
-   "label": "Birim Fiyat",
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "toplam",
-   "fieldtype": "Currency",
-   "label": "Toplam",
-   "read_only": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "fiyat_anlasmasi",
-   "fieldtype": "Link",
-   "label": "Fiyat Anla\u015fmas\u0131",
-   "options": "Lojinet Fiyat Anlasmasi",
-   "read_only": 1
-  },
-  {
-   "fieldname": "fatura_durumu",
-   "fieldtype": "Select",
-   "label": "Fatura Durumu",
-   "options": "Faturalanmad\u0131\\nFaturaland\u0131",
-   "default": "Faturalanmad\u0131",
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "fatura_no",
-   "fieldtype": "Link",
-   "label": "Fatura No",
-   "options": "Sales Invoice",
-   "read_only": 1
-  },
-  {
-   "fieldname": "fatura_tarihi",
-   "fieldtype": "Date",
-   "label": "Fatura Tarihi",
-   "read_only": 1
-  }
- ],
- "modified": "2025-12-23 00:00:00",
- "module": "Lojinet",
- "name": "Lojinet Yuk Fiyat",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "read": 1,
-   "write": 1,
-   "role": "System Manager"
-  }
- ],
- "istable": 1
+ "istable":1,
+ "modified":"2025-12-23 00:00:00",
+ "module":"Lojinet",
+ "name":"Lojinet Yuk Fiyat"
 }

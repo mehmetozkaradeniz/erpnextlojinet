@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fiyat Teklifi Al - Lojinet B2B</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; }
+        .navbar { background: #3498db; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .navbar h1 { font-size: 20px; }
+        .navbar .user { display: flex; gap: 15px; align-items: center; }
+        .container { max-width: 800px; margin: 30px auto; padding: 20px; }
+        .card { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h2 { margin-bottom: 20px; color: #2c3e50; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; color: #555; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; }
+        textarea { min-height: 80px; resize: vertical; }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        button { background: #3498db; color: white; padding: 12px 30px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; width: 100%; }
+        button:hover { background: #2980b9; }
+        .success { background: #d4edda; color: #155724; padding: 15px; border-radius: 4px; margin-bottom: 20px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>🚚 Lojinet B2B Portal</h1>
+        <div class="user">
+            <a href="/b2b/yukler" style="color:white; text-decoration:none;">Yüklerim</a>
+            <a href="/b2b/teklif" style="color:white; text-decoration:none;">Teklif Al</a>
+            <span id="user-name"></span>
+            <a href="#" onclick="logout()" style="color:white; text-decoration:none;">Çıkış</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="card">
+            <div id="success-msg" class="success">✅ Teklif talebiniz başarıyla gönderildi!</div>
+            
+            <h2>📋 Fiyat Teklifi Talebi</h2>
+            
+            <form id="teklif-form">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Çıkış İli *</label>
+                        <input type="text" id="cikis_ili" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Varış İli *</label>
+                        <input type="text" id="varis_ili" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Çıkış İlçe</label>
+                        <input type="text" id="cikis_ilce">
+                    </div>
+                    <div class="form-group">
+                        <label>Varış İlçe</label>
+                        <input type="text" id="varis_ilce">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Alıcı Firma</label>
+                    <input type="text" id="alici_firma">
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Tahmini Ağırlık (Kg)</label>
+                        <input type="number" id="agirlik">
+                    </div>
+                    <div class="form-group">
+                        <label>Tahmini Hacim (m³)</label>
+                        <input type="number" id="hacim" step="0.1">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Gönderim Tarihi</label>
+                    <input type="date" id="gonderim_tarihi">
+                </div>
+                
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <textarea id="aciklama"></textarea>
+                </div>
+                
+                <button type="submit">📤 Teklif Talebi Gönder</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        const api_key = localStorage.getItem('api_key');
+        const user_name = localStorage.getItem('user_name');
+        
+        if (!api_key) {
+            window.location.href = '/b2b/index';
+        }
+        
+        document.getElementById('user-name').textContent = user_name || 'Kullanıcı';
+        
+        document.getElementById('teklif-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const data = {
+                cikis_ili: document.getElementById('cikis_ili').value,
+                varis_ili: document.getElementById('varis_ili').value,
+                cikis_ilce: document.getElementById('cikis_ilce').value,
+                varis_ilce: document.getElementById('varis_ilce').value,
+                alici_firma: document.getElementById('alici_firma').value,
+                agirlik: document.getElementById('agirlik').value,
+                hacim: document.getElementById('hacim').value,
+                gonderim_tarihi: document.getElementById('gonderim_tarihi').value,
+                aciklama: document.getElementById('aciklama').value
+            };
+            
+            fetch('/api/method/lojinet.api.b2b_create_yuk_talebi', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({api_key: api_key, data: data})
+            })
+            .then(r => r.json())
+            .then(result => {
+                if (result.message) {
+                    document.getElementById('success-msg').style.display = 'block';
+                    document.getElementById('teklif-form').reset();
+                    setTimeout(() => {
+                        window.location.href = '/b2b/yukler';
+                    }, 2000);
+                }
+            })
+            .catch(err => {
+                alert('❌ Hata: ' + err.message);
+            });
+        });
+        
+        function logout() {
+            localStorage.clear();
+            window.location.href = '/b2b/index';
+        }
+    </script>
+</body>
+</html>

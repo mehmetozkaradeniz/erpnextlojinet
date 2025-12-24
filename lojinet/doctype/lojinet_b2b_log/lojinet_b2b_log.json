@@ -1,0 +1,53 @@
+{
+ "autoname": "hash",
+ "creation": "2025-12-23 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "kullanici",
+  "islem",
+  "islem_tarihi",
+  "ip_adresi",
+  "detay"
+ ],
+ "fields": [
+  {
+   "fieldname": "kullanici",
+   "fieldtype": "Link",
+   "label": "Kullanıcı",
+   "options": "Lojinet B2B Kullanici",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "islem",
+   "fieldtype": "Data",
+   "label": "İşlem",
+   "in_list_view": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "islem_tarihi",
+   "fieldtype": "Datetime",
+   "label": "İşlem Tarihi",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "ip_adresi",
+   "fieldtype": "Data",
+   "label": "IP Adresi"
+  },
+  {
+   "fieldname": "detay",
+   "fieldtype": "Text",
+   "label": "Detay"
+  }
+ ],
+ "modified": "2025-12-23 00:00:00",
+ "module": "Lojinet",
+ "name": "Lojinet B2B Log",
+ "permissions": [
+  {"read": 1, "role": "System Manager"}
+ ],
+ "sort_field": "islem_tarihi",
+ "sort_order": "DESC"
+}

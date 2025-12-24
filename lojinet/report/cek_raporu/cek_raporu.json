@@ -1,0 +1,10 @@
+{
+ "add_total_row": 1,
+ "creation": "2025-12-23 00:00:00",
+ "doctype": "Report",
+ "is_standard": "Yes",
+ "name": "Cek Raporu",
+ "ref_doctype": "Lojinet Cek",
+ "report_name": "Cek Raporu",
+ "report_type": "Script Report"
+}

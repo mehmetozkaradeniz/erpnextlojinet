@@ -1,0 +1,161 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2025-12-23 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "cari",
+  "islem_tarihi",
+  "islem_turu",
+  "column_break_1",
+  "tutar",
+  "odeme_yontemi",
+  "section_break_2",
+  "cek",
+  "cek_no_display",
+  "cek_tutar_display",
+  "cek_vade_display",
+  "section_break_3",
+  "banka",
+  "hesap_no",
+  "referans_no",
+  "aciklama"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Seri",
+   "options": "OT-.YYYY.-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cari",
+   "fieldtype": "Link",
+   "label": "Cari",
+   "options": "Lojinet Cari",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "islem_tarihi",
+   "fieldtype": "Date",
+   "label": "İşlem Tarihi",
+   "default": "Today",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "islem_turu",
+   "fieldtype": "Select",
+   "label": "İşlem Türü",
+   "options": "Tahsilat\nÖdeme",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tutar",
+   "fieldtype": "Currency",
+   "label": "Tutar",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "odeme_yontemi",
+   "fieldtype": "Select",
+   "label": "Ödeme Yöntemi",
+   "options": "Nakit\nBanka Havalesi\nÇek\nKredi Kartı",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "depends_on": "eval:doc.odeme_yontemi=='Çek'",
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Çek Bilgileri"
+  },
+  {
+   "depends_on": "eval:doc.odeme_yontemi=='Çek'",
+   "fieldname": "cek",
+   "fieldtype": "Link",
+   "label": "Çek Seç",
+   "options": "Lojinet Cek"
+  },
+  {
+   "fieldname": "cek_no_display",
+   "fieldtype": "Data",
+   "label": "Çek No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cek_tutar_display",
+   "fieldtype": "Currency",
+   "label": "Çek Tutar",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cek_vade_display",
+   "fieldtype": "Date",
+   "label": "Vade Tarihi",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.odeme_yontemi=='Banka Havalesi'",
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Banka Bilgileri"
+  },
+  {
+   "fieldname": "banka",
+   "fieldtype": "Data",
+   "label": "Banka"
+  },
+  {
+   "fieldname": "hesap_no",
+   "fieldtype": "Data",
+   "label": "Hesap No"
+  },
+  {
+   "fieldname": "referans_no",
+   "fieldtype": "Data",
+   "label": "Referans No"
+  },
+  {
+   "fieldname": "aciklama",
+   "fieldtype": "Small Text",
+   "label": "Açıklama"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2025-12-23 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Odeme Tahsilat",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "cari,islem_tarihi",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

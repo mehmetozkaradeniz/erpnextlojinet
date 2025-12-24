@@ -1,0 +1,28 @@
+{
+ "autoname":"naming_series:",
+ "creation":"2025-12-23 00:00:00",
+ "doctype":"DocType",
+ "field_order":["naming_series","cari","cek_no","tutar","vade_tarihi","durum","ciro_edilebilir","ciro_edilen_cari","banka","sube"],
+ "fields":[
+  {"fieldname":"naming_series","fieldtype":"Select","label":"Seri","options":"CEK-.YYYY.-.####","reqd":1},
+  {"fieldname":"cari","fieldtype":"Link","label":"Cari","options":"Lojinet Cari","reqd":1,"in_list_view":1},
+  {"fieldname":"cek_no","fieldtype":"Data","label":"Çek No","reqd":1,"in_list_view":1},
+  {"fieldname":"tutar","fieldtype":"Currency","label":"Tutar","reqd":1,"in_list_view":1},
+  {"fieldname":"vade_tarihi","fieldtype":"Date","label":"Vade Tarihi","reqd":1,"in_list_view":1},
+  {"fieldname":"durum","fieldtype":"Select","label":"Durum","options":"Portföy\\nTahsil Edildi\\nÖdendi\\nCiro Edildi","default":"Portföy","in_list_view":1},
+  {"fieldname":"ciro_edilebilir","fieldtype":"Check","label":"Ciro Edilebilir","default":"1"},
+  {"fieldname":"ciro_edilen_cari","fieldtype":"Link","label":"Ciro Edilen Cari","options":"Lojinet Cari","read_only":1},
+  {"fieldname":"banka","fieldtype":"Data","label":"Banka"},
+  {"fieldname":"sube","fieldtype":"Data","label":"Şube"}
+ ],
+ "is_submittable":1,
+ "modified":"2025-12-23 00:00:00",
+ "module":"Lojinet",
+ "name":"Lojinet Cek",
+ "naming_rule":"By \"Naming Series\" field",
+ "permissions":[{"create":1,"delete":1,"read":1,"write":1,"submit":1,"role":"System Manager"}],
+ "search_fields":"cek_no,cari",
+ "sort_field":"vade_tarihi",
+ "sort_order":"ASC",
+ "title_field":"cek_no"
+}

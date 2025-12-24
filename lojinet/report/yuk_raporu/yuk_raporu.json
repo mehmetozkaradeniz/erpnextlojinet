@@ -1,0 +1,10 @@
+{
+ "add_total_row": 1,
+ "creation": "2025-12-23 00:00:00",
+ "doctype": "Report",
+ "is_standard": "Yes",
+ "name": "Yuk Raporu",
+ "ref_doctype": "Lojinet Yuk",
+ "report_name": "Yuk Raporu",
+ "report_type": "Script Report"
+}

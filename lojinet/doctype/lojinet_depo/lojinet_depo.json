@@ -1,0 +1,130 @@
+{
+ "autoname": "field:depo_adi",
+ "creation": "2025-12-23 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "depo_adi",
+  "adres",
+  "column_break_1",
+  "kapasite",
+  "mevcut_doluluk",
+  "doluluk_yuzdesi",
+  "section_break_2",
+  "stok_detaylari",
+  "section_break_3",
+  "il",
+  "ilce",
+  "yetkili_kisi",
+  "telefon",
+  "email"
+ ],
+ "fields": [
+  {
+   "fieldname": "depo_adi",
+   "fieldtype": "Data",
+   "label": "Depo Adı",
+   "reqd": 1,
+   "in_list_view": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "adres",
+   "fieldtype": "Small Text",
+   "label": "Adres"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "kapasite",
+   "fieldtype": "Float",
+   "label": "Kapasite (m³)",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "mevcut_doluluk",
+   "fieldtype": "Float",
+   "label": "Mevcut Doluluk (m³)",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "doluluk_yuzdesi",
+   "fieldtype": "Percent",
+   "label": "Doluluk %",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Stok Detayları"
+  },
+  {
+   "fieldname": "stok_detaylari",
+   "fieldtype": "Table",
+   "label": "Stok Detayları",
+   "options": "Lojinet Depo Stok Detay"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "İletişim Bilgileri"
+  },
+  {
+   "fieldname": "il",
+   "fieldtype": "Data",
+   "label": "İl",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "ilce",
+   "fieldtype": "Data",
+   "label": "İlçe"
+  },
+  {
+   "fieldname": "yetkili_kisi",
+   "fieldtype": "Data",
+   "label": "Yetkili Kişi"
+  },
+  {
+   "fieldname": "telefon",
+   "fieldtype": "Data",
+   "label": "Telefon"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  }
+ ],
+ "modified": "2025-12-23 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Lojinet",
+ "name": "Lojinet Depo",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "depo_adi,kapasite,il",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "depo_adi",
+ "track_changes": 1
+}

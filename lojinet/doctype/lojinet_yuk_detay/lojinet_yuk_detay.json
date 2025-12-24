@@ -1,0 +1,19 @@
+{
+ "creation":"2025-12-23 00:00:00",
+ "doctype":"DocType",
+ "editable_grid":1,
+ "engine":"InnoDB",
+ "field_order":["stok_kodu","stok_adi","miktar","birim","desi","aciklama"],
+ "fields":[
+  {"fieldname":"stok_kodu","fieldtype":"Data","label":"Stok Kodu","reqd":1,"in_list_view":1},
+  {"fieldname":"stok_adi","fieldtype":"Data","label":"Stok Adı","in_list_view":1},
+  {"fieldname":"miktar","fieldtype":"Float","label":"Miktar","reqd":1,"in_list_view":1},
+  {"fieldname":"birim","fieldtype":"Select","label":"Birim","options":"Adet\\nKg\\nM3\\nPalet","in_list_view":1},
+  {"fieldname":"desi","fieldtype":"Float","label":"Desi"},
+  {"fieldname":"aciklama","fieldtype":"Small Text","label":"Açıklama"}
+ ],
+ "istable":1,
+ "modified":"2025-12-23 00:00:00",
+ "module":"Lojinet",
+ "name":"Lojinet Yuk Detay"
+}
